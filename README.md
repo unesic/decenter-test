@@ -1,4 +1,4 @@
-# Decenter - Frontend developer test
+# Decenter - Frontend developer test [![Netlify Status](https://api.netlify.com/api/v1/badges/105de19f-8689-4210-8229-520ce68e801e/deploy-status)](https://app.netlify.com/sites/decenter-test/deploys)
 
 This project is a part of the hiring process for the [Decenter](https://www.decenter.com/) company and it's available for preview on [decenter.unesic.dev](https://decenter.unesic.dev)
 
