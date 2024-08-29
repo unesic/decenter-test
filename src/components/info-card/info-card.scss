@@ -1,0 +1,33 @@
+.info-card {
+	& + .info-card {
+		@apply mt-8;
+	}
+
+	&__header {
+		@apply flex items-center justify-between gap-8 rounded-t p-6 bg-crypto-dark-200 bg-opacity-60;
+
+		&__title {
+			@apply min-w-0 flex items-center gap-4 text-2xl font-bold;
+		}
+
+		&__details {
+			@apply flex items-center justify-between gap-8;
+
+			&__subtitle {
+				@apply text-lg;
+			}
+
+			&__info {
+				@apply text-sm;
+			}
+		}
+	}
+
+	&__info {
+		@apply grid grid-cols-3 gap-4 rounded-b p-6 bg-crypto-dark-200 bg-opacity-80;
+	}
+
+	&__signature {
+		@apply grid grid-cols-2 gap-4 mt-4 rounded-b p-6 bg-crypto-dark-200 bg-opacity-80;
+	}
+}

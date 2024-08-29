@@ -1,0 +1,32 @@
+.input {
+	&-container {
+		@apply relative flex items-center gap-2;
+	}
+
+	@apply rounded px-5 py-3 w-64 text-2xl text-crypto-light-50 placeholder:text-xl placeholder:text-opacity-50 transition-all;
+	@apply bg-crypto-dark-200 bg-opacity-80 focus-visible:outline-none focus:border-crypto-accent;
+	@apply border border-crypto-light-100 border-opacity-60 hover:border-crypto-light-50 hover:border-opacity-50 focus:border-crypto-accent focus:border-opacity-80;
+
+	&--wide {
+		@apply w-[394px];
+	}
+
+	&::-webkit-outer-spin-button,
+	&::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+	/* Firefox */
+	&[type="number"] {
+		-moz-appearance: textfield;
+	}
+
+	&__clear {
+		@apply border border-transparent rounded p-3 bg-crypto-dark-200 bg-opacity-0 hover:bg-opacity-70 text-crypto-light-50 text-opacity-60 hover:text-opacity-100 transition;
+
+		svg {
+			@apply w-8 h-8;
+		}
+	}
+}

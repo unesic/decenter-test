@@ -1,0 +1,42 @@
+@keyframes flicker {
+	0% {
+		@apply opacity-0;
+	}
+	50% {
+		@apply opacity-0;
+	}
+	50.01% {
+		@apply opacity-100;
+	}
+	100% {
+		@apply opacity-100;
+	}
+}
+
+.loading-state {
+	@apply my-4;
+
+	&__text {
+		@apply text-center mb-2;
+
+		&::after {
+			content: ".";
+			@apply inline-block;
+			animation-name: flicker;
+			animation-duration: 1s;
+			animation-iteration-count: infinite;
+		}
+	}
+
+	&__progress {
+		@apply relative rounded-full w-full h-2 bg-crypto-dark-200;
+
+		&__bar {
+			@apply absolute rounded-full h-2 bg-crypto-accent transition-all;
+		}
+	}
+
+	&__found {
+		@apply mt-1 text-xs text-center text-crypto-light-50 text-opacity-70;
+	}
+}

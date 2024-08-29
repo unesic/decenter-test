@@ -1,0 +1,39 @@
+.loading-placeholder {
+	@apply flex items-center w-32 h-7 bg-crypto-dark-100;
+
+	&--cell {
+		@apply w-12 h-[18px];
+
+		&-wide {
+			@apply w-24;
+		}
+	}
+
+	&--w {
+		&-sm {
+			@apply w-16;
+		}
+
+		&-lg {
+			@apply w-40;
+		}
+
+		&-xl {
+			@apply w-48;
+		}
+	}
+
+	&--h {
+		&-sm {
+			@apply h-4;
+		}
+
+		&-lg {
+			@apply h-5;
+		}
+
+		&-xl {
+			@apply h-8;
+		}
+	}
+}

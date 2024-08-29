@@ -1,0 +1,32 @@
+.table {
+	@apply table-fixed w-full text-left;
+
+	.thead {
+		@apply table-header-group text-sm;
+
+		.tr {
+			.th {
+				@apply px-4 py-4 font-bold;
+			}
+		}
+	}
+
+	.tbody {
+		@apply table-row-group;
+
+		.tr {
+			.td {
+				@apply px-6 py-3;
+			}
+		}
+	}
+
+	.tr {
+		@apply table-row w-full;
+
+		.th,
+		.td {
+			@apply table-cell;
+		}
+	}
+}
