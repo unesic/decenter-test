@@ -1,15 +1,15 @@
 .search-results {
-	.thead {
-		.th:not(:first-of-type) {
-			@apply text-right;
-		}
-	}
+  .thead {
+    .th:not(:first-of-type) {
+      @apply text-right;
+    }
+  }
 
-	&__info {
-		@apply mt-2 text-sm text-center text-crypto-light-50 text-opacity-40 italic;
+  &__info {
+    @apply mt-2 text-sm text-center text-crypto-light-50 text-opacity-40 italic;
 
-		span {
-			@apply not-italic;
-		}
-	}
+    span {
+      @apply not-italic;
+    }
+  }
 }

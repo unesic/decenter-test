@@ -32,10 +32,18 @@ export const SearchResults: React.FC<SearchResultsProps> = ({
       <Table>
         <Rowgroup type="thead">
           <Row>
-            <Cell as="th">ID</Cell>
-            <Cell as="th">Owner</Cell>
-            <Cell as="th">Debt</Cell>
-            <Cell as="th">Collateral</Cell>
+            <Cell as="th" className="min-w-24">
+              ID
+            </Cell>
+            <Cell as="th" className="min-w-32">
+              Owner
+            </Cell>
+            <Cell as="th" className="min-w-28">
+              Debt
+            </Cell>
+            <Cell as="th" className="min-w-32">
+              Collateral
+            </Cell>
           </Row>
         </Rowgroup>
 

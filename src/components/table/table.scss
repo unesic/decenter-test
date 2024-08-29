@@ -1,32 +1,36 @@
-.table {
-	@apply table-fixed w-full text-left;
+.c-table {
+  @apply overflow-auto max-w-full sm:table sm:table-fixed w-full text-left;
 
-	.thead {
-		@apply table-header-group text-sm;
+  .thead {
+    @apply sm:table-header-group text-sm;
 
-		.tr {
-			.th {
-				@apply px-4 py-4 font-bold;
-			}
-		}
-	}
+    .tr {
+      .th {
+        @apply px-2 sm:px-4 py-1 sm:py-4 font-bold;
+      }
+    }
+  }
 
-	.tbody {
-		@apply table-row-group;
+  .tbody {
+    @apply w-max sm:table-row-group;
 
-		.tr {
-			.td {
-				@apply px-6 py-3;
-			}
-		}
-	}
+    .tr {
+      .td {
+        @apply px-3 sm:px-6 py-2 sm:py-3;
+      }
+    }
+  }
 
-	.tr {
-		@apply table-row w-full;
+  .tr {
+    @apply flex sm:table-row w-full;
 
-		.th,
-		.td {
-			@apply table-cell;
-		}
-	}
+    .th,
+    .td {
+      @apply sm:table-cell sm:w-auto;
+
+      &:first-of-type {
+        @apply sticky sm:static left-0 z-10 sm:z-auto backdrop-blur-lg sm:backdrop-blur-0;
+      }
+    }
+  }
 }

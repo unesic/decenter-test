@@ -41,7 +41,7 @@ export const Rowgroup: React.FC<RowgroupProps> = ({ type, className, children })
 interface TableProps extends Base {}
 
 export const Table: React.FC<TableProps> = ({ className, children }) => (
-  <div role="table" className={["table", className].join(" ")}>
+  <div role="table" className={["c-table", className].join(" ")}>
     {children}
   </div>
 );

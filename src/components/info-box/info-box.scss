@@ -1,29 +1,33 @@
 .info-box {
-	@apply flex flex-col gap-1 rounded p-3 bg-crypto-light-50 bg-opacity-0;
+  @apply flex flex-col gap-1 rounded p-2 sm:p-3 bg-crypto-light-50 bg-opacity-0;
 
-	&--hover {
-		@apply hover:bg-opacity-5;
-	}
+  &--hover {
+    @apply hover:bg-opacity-5;
+  }
 
-	&[role="button"] {
-		&:hover svg {
-			@apply translate-x-4;
-		}
+  &[role="button"] {
+    &:hover svg {
+      @apply translate-x-4;
+    }
 
-		svg {
-			@apply transform transition-transform;
-		}
-	}
+    svg {
+      @apply transform transition-transform;
+    }
+  }
 
-	&__label {
-		@apply text-sm font-medium text-crypto-light-50 text-opacity-40;
-	}
+  &__label {
+    @apply text-xs sm:text-sm font-medium text-crypto-light-50 text-opacity-40;
+  }
 
-	&__value {
-		@apply text-2xl font-semibold text-crypto-light-50;
-	}
+  &__value {
+    @apply text-xl sm:text-2xl font-semibold text-crypto-light-50;
 
-	&__info {
-		@apply text-xs font-medium text-crypto-light-50 text-opacity-70;
-	}
+    svg {
+      @apply max-w-6 max-h-6 sm:max-w-none sm:max-h-none;
+    }
+  }
+
+  &__info {
+    @apply text-xs font-medium text-crypto-light-50 text-opacity-70;
+  }
 }

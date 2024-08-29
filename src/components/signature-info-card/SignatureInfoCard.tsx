@@ -14,26 +14,24 @@ export const SignatureInfoCard: React.FC<SignatureInfoCardProps> = ({
   message,
   signature,
   signedBy,
-}) => {
-  return (
-    <InfoCard>
-      <Header>
-        <Title>
-          <CheckCircle className="w-8 h-8 text-crypto-accent" /> CDP Signed
-        </Title>
-        <Subtitle>
-          <Tooltip tooltip={signature}>
-            <span className="font-medium opacity-60">Signature hash:</span>{" "}
-            <strong className="font-mono">{shortenHash(signature, 4)}</strong>
-          </Tooltip>
-        </Subtitle>
-      </Header>
+}) => (
+  <InfoCard>
+    <Header>
+      <Title>
+        <CheckCircle className="w-8 h-8 text-crypto-accent" /> CDP Signed
+      </Title>
+      <Subtitle>
+        <Tooltip tooltip={signature}>
+          <span className="font-medium opacity-60">Signature hash:</span>{" "}
+          <strong className="font-mono">{shortenHash(signature, 4)}</strong>
+        </Tooltip>
+      </Subtitle>
+    </Header>
 
-      <Body>
-        <InfoBox label="Message" value={message} />
-        <InfoBox label="Account" value={shortenHash(account, 4)} tooltip={account} />
-        <InfoBox label="Signed By" value={shortenHash(signedBy, 4)} tooltip={signedBy} />
-      </Body>
-    </InfoCard>
-  );
-};
+    <Body>
+      <InfoBox label="Message" value={message} />
+      <InfoBox label="Account" value={shortenHash(account, 4)} tooltip={account} />
+      <InfoBox label="Signed By" value={shortenHash(signedBy, 4)} tooltip={signedBy} />
+    </Body>
+  </InfoCard>
+);

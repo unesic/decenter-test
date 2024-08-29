@@ -52,19 +52,19 @@ export const SearchResult: React.FC<SearchResultProps> = ({
       onClick={onRowSelect}
       onKeyDown={onRowSelect}
     >
-      <Cell>
+      <Cell className="min-w-24">
         <span className="search-result__id">
           <IlkIcon ilk={ilk} /> {id}
         </span>
       </Cell>
 
-      <Cell className="font-mono">
+      <Cell className="min-w-32 font-mono">
         <Tooltip tooltip={userAddr}>{shortenHash(userAddr)}</Tooltip>
       </Cell>
 
-      <Cell>{formatNumber(debt, { notation: "compact" })} DAI</Cell>
+      <Cell className="min-w-28">{formatNumber(debt, { notation: "compact" })} DAI</Cell>
 
-      <Cell className="action-cell">
+      <Cell className="min-w-32 action-cell">
         {formatNumber(collateral)} {formatIlk(ilk)}
         <span className="arrow-icon">
           <ArrowRight />

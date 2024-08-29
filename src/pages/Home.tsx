@@ -130,7 +130,7 @@ export const Home: React.FC = () => {
   }, [roughCdpId, collType]);
 
   return (
-    <div className="container py-8">
+    <>
       {loading && <LoadingState found={results.length} />}
 
       {results.length ? (
@@ -143,6 +143,6 @@ export const Home: React.FC = () => {
       ) : (
         <EmptyState />
       )}
-    </div>
+    </>
   );
 };

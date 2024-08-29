@@ -8,7 +8,7 @@ export const Loading: React.FC = () => (
       <LoadingPlaceholder w="xl" h="xl" />
       <Details>
         <LoadingPlaceholder w="xl" />
-        <LoadingPlaceholder w="xl" h="sm" />
+        <LoadingPlaceholder w="xl" h="lg" />
       </Details>
     </Header>
 
@@ -38,7 +38,7 @@ export const Loading: React.FC = () => (
       />
       <InfoBox<React.ReactNode>
         label={<LoadingPlaceholder w="sm" h="lg" />}
-        value={<LoadingPlaceholder w="md" h="xl" />}
+        value={<LoadingPlaceholder w="lg" h="xl" />}
         hover={false}
       />
     </Body>

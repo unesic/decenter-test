@@ -69,9 +69,10 @@ export const CDPInfo: React.FC = () => {
   };
 
   return (
-    <div className="container py-8">
+    <>
       <CDPInfoCard cdp={cdp} sign={signCdp} signature={signature} loading={loading} />
+      <CDPInfoCard cdp={cdp} sign={signCdp} signature={signature} loading />
       {signature && <SignatureInfoCard {...signature} />}
-    </div>
+    </>
   );
 };

@@ -1,32 +1,32 @@
 .tooltip {
-	@apply relative w-max cursor-help;
+  @apply relative w-max cursor-help;
 
-	&--lg {
-		.tooltip {
-			&__text {
-				@apply mb-2 text-base font-medium;
+  &--lg {
+    .tooltip {
+      &__text {
+        @apply mb-2 text-base font-medium;
 
-				&::after {
-					@apply top-4 border-[10px] border-r-0;
-				}
-			}
-		}
-	}
+        &::after {
+          @apply top-4 border-[10px] border-r-0;
+        }
+      }
+    }
+  }
 
-	&:hover &__text {
-		@apply block;
-	}
+  &:hover &__text {
+    @apply block;
+  }
 
-	&__text {
-		@apply hidden absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1;
-		@apply rounded px-2 py-1 w-max bg-crypto-light-100 text-xs text-crypto-light-50 text-opacity-90 opacity-90;
+  &__text {
+    @apply hidden absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1;
+    @apply rounded px-2 py-1 w-max bg-crypto-light-100 text-xs text-crypto-light-50 text-opacity-90 opacity-90;
 
-		&::after {
-			content: "";
-			@apply absolute top-3 left-1/2 border-8 border-r-0 border-transparent border-b-crypto-light-100 transform -translate-x-1/2 rotate-45;
-		}
-	}
+    &::after {
+      content: "";
+      @apply absolute top-3 left-1/2 border-8 border-r-0 border-transparent border-b-crypto-light-100 transform -translate-x-1/2 rotate-45;
+    }
+  }
 
-	&__owner {
-	}
+  &__owner {
+  }
 }
