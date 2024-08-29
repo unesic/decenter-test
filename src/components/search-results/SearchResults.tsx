@@ -24,9 +24,13 @@ export const SearchResults: React.FC<SearchResultsProps> = ({
   count,
 }) => {
   const loadingRows = useMemo(() => {
+    if (!loading) return;
     const diff = MAX_CDPS - results.length;
     return new Array(diff < 0 ? 0 : diff).fill(1);
-  }, [results]);
+  }, [results, loading]);
+
+  if (!loading && !results.length) return;
+
   return (
     <div className="search-results">
       <Table>
@@ -51,7 +55,7 @@ export const SearchResults: React.FC<SearchResultsProps> = ({
           {results.map((cdp) => (
             <SearchResult key={cdp.id} {...cdp} />
           ))}
-          {loadingRows.map((_, idx) => (
+          {loadingRows?.map((_, idx) => (
             <SearchResult key={idx} {..._} loading={loading} />
           ))}
         </Rowgroup>

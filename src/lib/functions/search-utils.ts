@@ -55,8 +55,12 @@ export function weighIds(weights: number[], id: number) {
   return weights.map((w) => w + id);
 }
 
-export function setAbort(id?: number) {
+export function setAbort(id?: number, ilk?: string) {
   const ids = Object.keys(window.abort ?? {});
   window.abort = ids.reduce((a, id) => ({ ...a, [id]: true }), {});
-  if (id) window.abort[id] = false;
+  if (id && ilk) window.abort[`${id}-${ilk}`] = false;
+}
+
+export function isAborted(id: number, ilk: string) {
+  return window.abort[`${id}-${ilk}`];
 }

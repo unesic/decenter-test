@@ -3,7 +3,14 @@ import { useOutletContext } from "react-router-dom";
 
 import { getCdps, getIlkInfo } from "@/lib/w3";
 import { CollType } from "@/lib/w3/types";
-import { correctCycleWeights, getCycleWeights, setAbort, sleep, weighIds } from "@/lib/functions";
+import {
+  correctCycleWeights,
+  getCycleWeights,
+  isAborted,
+  setAbort,
+  sleep,
+  weighIds,
+} from "@/lib/functions";
 import { BASE_WEIGHTS, MAX_CDPS } from "@/lib/constants";
 
 import { Context } from "@/lib/context/Context";
@@ -22,7 +29,7 @@ type SearchCdps = (
     cycle?: number,
     found?: number
   ]
-) => void;
+) => Promise<void>;
 
 export const Home: React.FC = () => {
   const { roughCdpId, collType, results, setResults } = useOutletContext<RouterContext>();
@@ -83,7 +90,7 @@ export const Home: React.FC = () => {
         max = weights.at(-1) as number;
       }
 
-      if (window.abort[id]) return;
+      if (isAborted(id, ilk)) return;
 
       const results = await getCdps(cdpIds, ilk, cdpContract, ilkRate);
       const filtered = results.filter((r) => !!r);
@@ -91,13 +98,12 @@ export const Home: React.FC = () => {
       setResults((r) => r.concat(filtered));
       setSearchCount((p) => p + cdpIds.length);
 
-      if (found < MAX_CDPS && !window.abort[id]) {
+      if (found < MAX_CDPS && !isAborted(id, ilk)) {
         await sleep();
-        searchCdps(id, ilk, max, min, cycle + 1, found + filtered.length);
-      } else {
+        await searchCdps(id, ilk, max, min, cycle + 1, found + filtered.length);
+      } else if (found === MAX_CDPS) {
         setLoading(false);
-        return;
-      }
+      } else return;
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [cdpContract, ilkContract, ilkRate]
@@ -112,14 +118,15 @@ export const Home: React.FC = () => {
   }, [loading]);
 
   useEffect(() => {
-    setResults([]);
-    setSearchCount(0);
-
     if (typeof roughCdpId !== "number") return;
 
-    setAbort(roughCdpId);
-    setLoading(true);
-    searchCdps(roughCdpId, collType);
+    setAbort(roughCdpId, collType);
+    sleep().then(async () => {
+      setResults([]);
+      setSearchCount(0);
+      setLoading(true);
+      await searchCdps(roughCdpId, collType);
+    });
 
     return () => {
       setAbort();
@@ -133,16 +140,14 @@ export const Home: React.FC = () => {
     <>
       {loading && <LoadingState found={results.length} />}
 
-      {results.length ? (
-        <SearchResults
-          results={results}
-          loading={loading}
-          timeTaken={timeTaken}
-          count={searchCount}
-        />
-      ) : (
-        <EmptyState />
-      )}
+      <SearchResults
+        results={results}
+        loading={loading}
+        timeTaken={timeTaken}
+        count={searchCount}
+      />
+
+      {!results.length && !loading && <EmptyState />}
     </>
   );
 };
